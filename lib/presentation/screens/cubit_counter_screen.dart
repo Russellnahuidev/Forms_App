@@ -1,20 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:forms_app/presentation/blocs/counter_cubir/counter_cubit.dart';
 
 class CubitCounterScreen extends StatelessWidget {
   const CubitCounterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => CounterCubit(),
+      child: _CubitCounterView(),
+    );
+  }
+}
+
+class _CubitCounterView extends StatelessWidget {
+  const _CubitCounterView();
+
+  @override
+  Widget build(BuildContext context) {
+    final counterState = context.watch<CounterCubit>().state;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cubit Counter'),
+        title: Text('Cubit Counter: ${counterState.transactionCounter}'),
         actions: [
           IconButton(onPressed: () => {}, icon: Icon(Icons.refresh_sharp)),
         ],
       ),
       body: Center(
-        child: Text(
-          'Counter Value: 0', // Placeholder for counter value
+        child: BlocBuilder<CounterCubit, CounterState>(
+          // buildWhen: (previous, current) => current.counter != previous.counter,
+          builder: (context, state) {
+            return Text(
+              'Counter Value: ${state.counter}', // Placeholder for counter value
+            );
+          },
         ),
       ),
       floatingActionButton: Column(
