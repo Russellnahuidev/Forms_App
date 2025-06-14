@@ -15,14 +15,12 @@ class HomeScren extends StatelessWidget {
             subtitle: const Text('Gestor de estado usando Cubits'),
             onTap: () => context.push('/cubits'),
           ),
-          // ListTile(
-          //   leading: const Icon(Icons.settings),
-          //   title: const Text('Settings'),
-          //   subtitle: const Text('This is the settings screen'),
-          //   onTap: () {
-          //     // Handle tap
-          //   },
-          // ),
+          ListTile(
+            trailing: const Icon(Icons.arrow_forward_ios_rounded),
+            title: const Text('Bloc'),
+            subtitle: const Text('Gestor de estado usando Bloc'),
+            onTap: () => context.push('/counter-bloc'),
+          ),
           // ListTile(
           //   leading: const Icon(Icons.info),
           //   title: const Text('About'),
