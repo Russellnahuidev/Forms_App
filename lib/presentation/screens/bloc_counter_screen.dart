@@ -15,7 +15,8 @@ class BlocCounterView extends StatelessWidget {
   const BlocCounterView({super.key});
 
   void increaseCounterBy(BuildContext context, [int value = 1]) {
-    context.read<CounterBloc>().add(CounterIncreased(value));
+    //context.read<CounterBloc>().add(CounterIncreased(value));
+    context.read<CounterBloc>().increaseBy(value);
   }
 
   @override
@@ -65,7 +66,7 @@ class BlocCounterView extends StatelessWidget {
             heroTag: 'reset',
             onPressed: () {
               // Reset counter logic
-              context.read<CounterBloc>().add(CounterReset());
+              context.read<CounterBloc>().resetCouter();
             },
             child: const Icon(Icons.refresh),
           ),

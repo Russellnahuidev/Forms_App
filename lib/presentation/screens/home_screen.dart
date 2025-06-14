@@ -21,6 +21,7 @@ class HomeScren extends StatelessWidget {
             subtitle: const Text('Gestor de estado usando Bloc'),
             onTap: () => context.push('/counter-bloc'),
           ),
+
           // ListTile(
           //   leading: const Icon(Icons.info),
           //   title: const Text('About'),
@@ -29,6 +30,10 @@ class HomeScren extends StatelessWidget {
           //     // Handle tap
           //   },
           // ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Divider(),
+          ),
         ],
       ),
     );
